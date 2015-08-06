@@ -323,13 +323,18 @@ class BoasOptionConfig {
                 'title' => __('linkedin', BOAS_LANG),                
                 'default' => 'https://bd.linkedin.com/pub/anup-biswas/26/730/110',
             ),
+            array(
+                'id' => 'social_feed',
+                'type' => 'text',
+                'title' => __('Feed', BOAS_LANG),                
+                'default' => '',
+            ),
         );
         return array(
             'title' => __('Social Links', BOAS_LANG),
             'id' => 'boas-social',
             'icon' => 'el el-network',
-            'fields' => apply_filters('redux/' . $this->opt_name . '/sections/boas-social/fields', $fields),
-                //'subsection' => TRUE,
+            'fields' => apply_filters('redux/' . $this->opt_name . '/sections/boas-social/fields', $fields), 
         );
     }
     function optionHeader() {

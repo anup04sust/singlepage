@@ -20,7 +20,7 @@ if (!function_exists('boas_primary_menu')) {
 
     function boas_primary_menu($class = '') {
         global $boas_opt;
-        echo '<div id="primary-nav-collapse" class="collapse navbar-collapse primary-menu">';
+        echo '<div id="primary-nav-collapse" class="primary-menu clearfix">';
         if(!empty($boas_opt['menu_add_social'])){
            echo boas_social_icons();
         }
@@ -52,6 +52,9 @@ if (!function_exists('boas_social_icons')) {
          }
          if(!empty($boas_opt['social_linkedin'])){
             $out_social .= sprintf('<li class="social"><a href="%s" terget="_blank" title="Follow on Linkedin"><span class="fa fa-linkedin"></span></a></li>',$boas_opt['social_linkedin']); 
+         }
+         if(!empty($boas_opt['social_feed'])){
+            $out_social .= sprintf('<li class="social"><a href="%s" terget="_blank" title="Follow on Linkedin"><span class="fa fa-rss"></span></a></li>',$boas_opt['social_feed']); 
          }
         $out_social .= '</ul>';
         return $out_social;

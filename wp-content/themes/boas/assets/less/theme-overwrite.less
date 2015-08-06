@@ -1,3 +1,153 @@
-.primary-menu{
+#header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
     
+    .navbar-brand{
+        width: 140px;
+        padding: 65px 14px 12px;
+        .transition(all .5s ease-in);
+        .logo-img{
+            max-width: 100%;
+        }
+    } 
+    .primary-menu{
+        padding: 38px 0 0;      
+        .primary-nav{
+            padding:0 22px;
+            .menu-item{
+                > a{
+                    text-transform: uppercase;
+                    color: #fff;
+                    font-size: 17px;
+                    padding:12px 1em;                
+                    line-height: 20px;
+                    background: transparent;
+                    &:hover{
+                        background: rgba(0,0,0,.5);
+                    }
+                }
+            }
+        }
+    }
+    &:before{
+        position: absolute;
+        width: 100%;  
+        height: 0;
+        background-color: rgba(0,0,0,.5);
+        content: " ";       
+        top:  0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        opacity: 0;
+         .transition(opacity .5s ease-in);    
+         
+        
+    }
+    &.affix{
+        position: fixed;        
+        height: 50px;
+        .primary-menu{
+            padding-top: 4px;
+        }
+        .navbar-brand{
+             padding: 65px 14px 12px;
+             width: 100px;
+        }
+        &:before{
+              opacity: 1;            
+              height: 50px;               
+        }
+    }
+
 }
+#banner-wrap{
+    position: relative;
+    min-height: 350px;
+    overflow: hidden;
+    &.loadding{
+        &:after{
+            position: absolute;
+            content: " ";
+            top: 50%;
+            left: 50%;
+            background: url(../images/loader-t4.gif) center center no-repeat;
+            margin: -16px 0 0 -16px;
+            z-index: 50;
+            width:32px;
+            height:32px;
+            
+        }
+    }
+}
+#fullSlider{  
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;    
+    .slide{
+        >img {
+
+            height: 100%;
+            min-height: auto;
+            min-width: 100%;
+            width: auto;
+        }
+    }
+    .slider-caption{
+        bottom: 0;
+        display: table;
+        height: 100%;
+        left: 0;
+        margin: 0 auto;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 100% !important;
+        z-index: 25;
+        .caption{
+            display: table-cell;
+            height: 100%;
+            vertical-align: middle;
+            position: relative;
+              z-index: 21;
+        }
+    }
+    .pattern-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(../images/pattern-overlay.png) repeat;
+        background-color: transparent;
+        z-index: 15;
+    }
+    .pageDown{
+        bottom: 30px;
+        left: 50%;
+        position: absolute;
+        z-index: 20;
+    }
+    .flex-control-wrap{
+        position: absolute;
+         bottom: 30px;
+        width: 100%;
+        z-index: 18;
+        text-align:left;
+        .flex-control-paging{
+            position: static;  
+            margin: 0px; 
+            text-align:left;
+            li > a{
+                border-radius: 0px;
+                
+            }
+        }
+       
+    }
+}
+
+

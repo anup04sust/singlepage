@@ -43,44 +43,34 @@ if (!function_exists('boas_scripts')) :
     function boas_scripts() {
         global $boas_opt;       
         //Bootstrap Customized      
-        wp_enqueue_script('bootstarp', BOAS_ASSETS_URI . '/js/bootstrap.min.js', array('jquery'), '3.3.5', FALSE);
+        wp_enqueue_script('bootstarp', BOAS_ASSETS_URI . '/js/bootstrap.min.js', array('jquery'), BOAS_VAR, FALSE);
         //Icon front
-        wp_enqueue_style('font-awesome', BOAS_ASSETS_URI . '/css/font-awesome.min.css', array(), '4.3.0');
-        wp_enqueue_style('animate.css', BOAS_ASSETS_URI . '/animate.min.css', array(), '4.3.0');
+        wp_enqueue_style('font-awesome', BOAS_ASSETS_URI . '/css/font-awesome.min.css', array(), BOAS_VAR);
+        wp_enqueue_style('animate.css', BOAS_ASSETS_URI . '/animate.min.css', array(), BOAS_VAR);
         //Page Loader
         //wp_enqueue_style('pageloader-css', BOAS_ASSETS_URI . '/page-loader/css/introLoader.css', array(), '1.6.2');
         //wp_enqueue_script('pageloader-js', BOAS_ASSETS_URI . '/page-loader/jquery.introLoader.pack.min.js', array('jquery'), '1.6.2', FALSE);
 
         //Mobile MEnu
-        wp_enqueue_style('mmenu-style', BOAS_ASSETS_URI . '/css/jquery.mmenu.all.css', array(), '5.3.0');
-        wp_enqueue_script('mmenu-js', BOAS_ASSETS_URI . '/js/jquery.mmenu.min.all.js', array('jquery'), '5.3.0', FALSE);
+        wp_enqueue_style('mmenu-style', BOAS_ASSETS_URI . '/css/jquery.mmenu.all.css', array(),BOAS_VAR);
+        wp_enqueue_script('mmenu-js', BOAS_ASSETS_URI . '/js/jquery.mmenu.min.all.js', array('jquery'), BOAS_VAR, FALSE);
         
        // wp_enqueue_script('tubeplayer', BOAS_ASSETS_URI . '/js/jQuery.tubeplayer.min.js', array('jquery'), '5.3.0', FALSE);
-
-        //Slider script
-        $slider_type = $boas_opt['home_slider'];
-        if ($slider_type == 'theme-camera') {
-            wp_enqueue_style('camera-slider-css', BOAS_ASSETS_URI . '/camera/css/camera.css', array(), ILLUSIVE_THEME_VAR);
-            wp_enqueue_script('easing', BOAS_ASSETS_URI . '/camera/scripts/jquery.easing.1.3.js', array('jquery'), '1.3', FALSE);
-            if (wp_is_mobile()) {
-                wp_enqueue_script('jquery-mobile', BOAS_ASSETS_URI . '/camera/scripts/jquery.mobile.customized.min.js', array('jquery'), '1.3', FALSE);
-            }
-
-            wp_enqueue_script('camera-scripts', BOAS_ASSETS_URI . '/camera/scripts/camera.min.js', array('jquery'), ILLUSIVE_THEME_VAR, FALSE);
-        }
+        wp_enqueue_style('flexslider-style', BOAS_ASSETS_URI . '/css/flexslider.css', array(),BOAS_VAR);
+        wp_enqueue_script('flexslider', BOAS_ASSETS_URI . '/js/jquery.flexslider-min.js', array('jquery'), BOAS_VAR, FALSE);
         //Slider script       
         if ( !empty($boas_opt['content_load_animae'])) {
-             wp_enqueue_script('wow', BOAS_ASSETS_URI . '/js/wow.min.js', array('jquery'), '1.1.2', FALSE);
+             wp_enqueue_script('wow', BOAS_ASSETS_URI . '/js/wow.min.js', array('jquery'), BOAS_VAR, FALSE);
            
         }
         
-        wp_enqueue_script('yt', BOAS_ASSETS_URI . '/js/vapi.js', array(''), ILLUSIVE_THEME_VAR, FALSE);
+        //wp_enqueue_script('yt', BOAS_ASSETS_URI . '/js/vapi.js', array(''), BOAS_VAR, FALSE);
         //jquery magnific popup
         //wp_enqueue_style('magnific-popup', BOAS_ASSETS_URI . '/css/magnific-popup.css', array(), '1.0.0');
         //wp_enqueue_script('jquery.magnific-popup', BOAS_ASSETS_URI . '/js/jquery.magnific-popup.min.js', array('jquery'), '1.0.0', FALSE);
-        //custom Stye
-        wp_enqueue_style('boas-style', BOAS_ASSETS_URI . '/css/boas.css', array(), '3.3.5');
-        wp_enqueue_style('boas-script', BOAS_ASSETS_URI . '/css/boas.css', array(), '3.3.5');
+        wp_enqueue_script('sticky', BOAS_ASSETS_URI . '/js/jquery.stickyNavbar.min.js', array('jquery'), BOAS_VAR,TRUE);
+        wp_enqueue_style('boas-style', BOAS_ASSETS_URI . '/css/boas.css', array(), BOAS_VAR);
+        wp_enqueue_script('boas-script', BOAS_ASSETS_URI . '/js/boas-script.js', array('jquery'), BOAS_VAR,TRUE);
         wp_localize_script('boas-script', 'boas_obj', array(
             'site_url' => get_site_url(),
             'ajaxUrl' => admin_url('ajax.php'),
